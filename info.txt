@@ -1,0 +1,685 @@
+  `network_tool (NetworkSensei Ultra)` Project Overview
+
+
+  The network_tool project is a sophisticated network scanning and security auditing tool designed to
+  provide in-depth analysis of network targets. It goes beyond simple port scanning by incorporating
+  advanced features for service identification, WAF (Web Application Firewall) detection and bypass,
+  vulnerability checking, and stealthy scanning techniques. The project is modular, with different
+  components responsible for specific tasks, making it extensible and maintainable.
+
+  Core Components
+
+
+   * `main.py`: The entry point of the application. It handles user input, orchestrates the scanning process,
+     and generates the final report.
+   * `scanner.py`: The heart of the project, containing the NetworkScanner class. This class implements the
+     core scanning logic, including port scanning, service probing, WAF detection, and various evasion
+     techniques.
+   * `config.py`: Defines the ScannerConfig class, which holds the configuration for a scan, such as target
+     IPs, ports, and enabled features.
+   * `bypass.py`: Contains the BypassStrategy class, which is responsible for generating and executing various
+      WAF and IDS bypass techniques.
+   * `service_probe.py`: Implements the ServiceProbe class, which is used to identify the services running on
+     open ports.
+   * `ssl_analysis.py`: Contains the SSLAnalysis class, which performs detailed analysis of SSL/TLS
+     configurations.
+   * `vulnerabilities.py`: Implements the VulnerabilityChecker class, which checks for known vulnerabilities
+     based on the gathered information.
+   * `report.py`: Defines the ReportGenerator class, which creates detailed and human-readable scan reports.
+   * `run_full_scan.py`: A script that demonstrates a full scan using all the advanced features of the
+     NetworkScanner.
+
+
+  `scanner.py` in Detail
+
+  The scanner.py file is the most critical component of the network_tool project. It contains the
+  NetworkScanner class, which is responsible for the main scanning logic. Let's break down its key
+  functionalities:
+
+  `NetworkScanner` Class
+
+
+  The NetworkScanner class is initialized with a ScannerConfig object, which defines the parameters of the
+  scan. It also initializes instances of the other core components, such as ServiceProbe, SSLAnalysis, and
+  VulnerabilityChecker.
+
+  Key Methods and Their Functions:
+
+
+   * `__init__(self, config: ScannerConfig)`: The constructor for the NetworkScanner class. It initializes the
+      configuration and all the necessary components for the scan.
+
+
+   * `_load_lstm_model(self) -> Optional[Any]`: This method is a placeholder for loading a pre-trained LSTM
+     (Long Short-Term Memory) model for service prediction. In a real-world scenario, this would be used for
+     more accurate service identification based on network traffic patterns.
+
+
+   * `_load_proxies(self) -> List[Dict[str, Any]]`: Loads a list of proxies from the configuration. These
+     proxies can be used to anonymize the scan and bypass IP-based blocking.
+
+   * `_infer_proxy_geo(self, proxy_url: str) -> str`: Infers the geographical location of a proxy based on its
+      URL. This can be useful for selecting proxies from specific regions.
+
+
+   * `report_proxy_failure(self, proxy_url: str) -> None`: Reports a failure for a given proxy. This helps in
+     managing the health of the proxy list and avoiding the use of unreliable proxies.
+
+
+   * `_get_next_proxy(self, prefer_different_geo_from: Optional[str] = None) -> Optional[Dict[str, Any]]`:
+     Selects the next available proxy from the list, prioritizing healthy proxies and optionally allowing for
+     geographical diversity.
+
+
+   * `_get_random_source_ip(self) -> Optional[str]`: Generates a random source IP address for spoofing. This
+     is used in decoy scans to hide the true origin of the scan.
+
+
+   * `_extract_features(self, pkt: IP, response_time: float) -> Any`: Extracts features from a network packet,
+      such as TTL (Time to Live) and response time. These features can be used for service prediction and OS
+     fingerprinting.
+
+   * `_predict_service_lstm(self, features: Any) -> Tuple[str, float]`: A placeholder for predicting a network
+      service using a loaded LSTM model.
+
+
+   * `_predict_service_heuristic(self, pkt: IP, response_time: float) -> Tuple[str, float]`: Predicts a
+     network service using heuristic rules based on the received packet.
+
+
+   * `traffic_pacing_control(self, base_delay: float = 0.1, jitter: float = 0.05, multiplier: float = 1.0)`:
+     Controls the rate of traffic by introducing variable delays between packets. This can help in evading
+     rate-limiting mechanisms.
+
+
+   * `os_fingerprint_evasion(self, os_type: str = "Linux") -> Dict[str, Any]`: Generates packet parameters
+     (TTL, Window Size, TCP Options) to mimic a specific operating system. This can be used to bypass OS-based
+      filtering rules.
+
+
+   * `http_header_mimicry(self, target_profile: str = "chrome_windows", strategy_hints: Optional[Dict[str,
+     Any]] = None) -> Dict[str, str]`: Generates realistic HTTP headers to mimic a specific client, such as a
+     web browser or a search engine bot. This is a key technique for evading WAFs that rely on User-Agent and
+     other header-based filtering.
+
+
+   * `decoy_scan(self, target_ip: str, target_port: int, decoys: List[str], ...)`: Performs a decoy scan,
+     which uses a list of decoy IP addresses to mask the true source of the scan. This makes it difficult for
+     the target to identify the real attacker.
+
+
+   * `fragmented_packet_scan(self, target_ip: str, target_port: int, ...)`: Sends fragmented IP packets to the
+      target. This technique can be used to bypass simple packet filters that do not properly reassemble
+     fragmented packets.
+
+
+   * `proxy_chaining_request(self, url: str, headers: Dict, max_chain: int = 3) -> Dict[str, Any]`: Sends a
+     request through a chain of proxies, further anonymizing the scan and making it more difficult to trace
+     back to the source.
+
+   * `resolve_domain(self, domain: str) -> Set[str]`: Resolves a domain name to a set of IP addresses, with
+     attempts to bypass DNS-based filtering.
+
+
+   * `_serialize_ip_packet(self, packet: Optional[Any]) -> Dict[str, Any]`: Converts a Scapy packet object
+     into a JSON-serializable dictionary for reporting.
+
+   * `tcp_connect(self, ip: str, port: int) -> Dict[str, Any]`: Performs a simple TCP connect scan to check if
+      a port is open.
+
+
+   * `probe_with_ack_fin(self, ip: str, port: int) -> Dict[str, Any]`: Probes a port with TCP ACK and FIN
+     packets to determine if it is open, closed, or filtered.
+
+
+   * `probe_closed_port_advanced(self, ip: str, port: int) -> Dict[str, Any]`: An advanced method for probing
+     closed or filtered ports.
+
+   * `_craft_advanced_packet(self, ip: str, port: int, strategy: Dict) -> Any`: Creates a custom Scapy packet
+     based on a given bypass strategy.
+
+   * `_select_bypass_strategy(self, protection: str, attempt: int) -> Dict`: Selects a bypass strategy based
+     on the detected protection mechanism.
+
+
+   * `_get_ip_id(self, ip: str, ...)`: A utility method for obtaining the initial IP ID of a host and checking
+      the predictability of its incrementation. This is a crucial component of the Idle Scan.
+
+
+   * `perform_idle_scan(self, target_ip: str, target_port: int, ...)`: Performs an Idle Scan (also known as a
+     Zombie Scan), which is a highly stealthy scanning technique that uses a "zombie" host to indirectly probe
+      the target.
+
+   * `_deep_service_probe(self, ip: str, port: int, ...)`: Performs a deep service probe to identify the
+     service running on a port.
+
+
+   * `_get_ssl_contexts(self) -> List[Dict[str, Any]]`: Creates a list of SSL contexts to try, from the most
+     secure to the most compatible.
+
+
+   * `_execute_http_bypass_strategies(self, ip: str, port: int, ...)`: Orchestrates various HTTP bypass
+     strategies for WAFs and other security measures.
+
+   * `orchestrate_waf_bypass(self, ip: str, port: int, ...)`: Intelligently orchestrates WAF bypass strategies
+      based on the detected WAF and previous responses.
+
+
+   * `_execute_single_bypass_attempt(self, ip: str, port: int, ...)`: Executes a single HTTP bypass attempt
+     based on a given configuration.
+
+
+   * `_detect_waf_from_response(self, response: requests.Response, response_text: str) -> Dict[str, Any]`:
+     Detects a WAF from an HTTP response based on a set of signatures.
+
+
+   * `_analyze_response_for_waf_feedback(self, response: Optional[requests.Response], detected_waf_info:
+     Dict[str, Any]) -> Dict[str, Any]`: Analyzes the response of a bypass attempt to provide feedback on its
+     success or failure.
+
+  Conclusion
+
+
+  The network_tool project is a powerful and versatile network scanning tool that combines a wide range of
+  techniques to provide a comprehensive security assessment. Its modular design and advanced features make
+  it a valuable asset for security professionals and researchers. The scanner.py file, with its
+  NetworkScanner class, is the core of the project, implementing the sophisticated logic that drives the
+  scanning and analysis process.
+
+Here is a detailed description of the "Chameleon" and "Netghost" sections of your tool, based on the
+  analysis of the scanner.py file. These sections are designed to enhance scan stealth and effectiveness by
+  bypassing detection and protection mechanisms.
+
+  ---
+
+  Section: Chameleon - Evasion and Mimicry Techniques
+
+
+  The "Chameleon" section focuses on evasion and mimicry techniques, allowing the tool to blend into normal
+  network traffic or imitate specific client behaviors to avoid detection by security systems (such as WAFs
+  or IDS/IPS).
+
+  Key Methods and Functions:
+
+
+   1. `traffic_pacing_control(self, base_delay: float = 0.1, jitter: float = 0.05, multiplier: float = 1.0)`
+       * Functionality: This method introduces variable delays between sending packets or requests. Instead of
+          sending requests in bursts (which is often an indicator of scanning), it simulates more human-like
+         or slower behavior by adding a random delay (with jitter) to a base delay.
+       * Objective: Avoid detection based on traffic volume or speed, which could trigger scan alerts.
+
+
+   2. `os_fingerprint_evasion(self, os_type: str = "Linux") -> Dict[str, Any]`
+       * Functionality: Generates IP and TCP packet parameters (such as Time-To-Live (TTL), TCP Window Size,
+         and TCP options) that are typical of a specific operating system (e.g., Linux, Windows, iOS).
+       * Objective: Mask the operating system fingerprint of the actual machine performing the scan, making
+         detection systems believe the traffic originates from a different, less suspicious OS.
+
+
+   3. `http_header_mimicry(self, target_profile: str = "chrome_windows", strategy_hints: Optional[Dict[str,
+      Any]] = None) -> Dict[str, str]`
+       * Functionality: Creates a set of realistic HTTP headers that mimic the behavior of a specific web
+         browser or HTTP client (e.g., Chrome on Windows, Firefox on macOS, or even Googlebot). It can also
+         apply advanced strategies such as randomizing header case (random_header_case), randomizing header
+         order (random_header_order), adding extra random headers (add_extra_random_headers), or spoofing IP
+         headers (spoof_ip_headers).
+       * Objective: Bypass WAFs and other security systems that analyze HTTP headers to detect suspicious or
+         non-standard requests. By imitating a legitimate client, scan requests are more likely to go
+         unnoticed.
+
+  ---
+
+  Section: Netghost - Obfuscation and Advanced Scanning Techniques
+
+
+  The "Netghost" section is dedicated to obfuscation and advanced scanning techniques, aiming to make the
+  origin of the scan difficult to trace or to exploit weaknesses in how security systems process traffic.
+
+  Key Methods and Functions:
+
+
+   1. `decoy_scan(self, target_ip: str, target_port: int, decoys: List[str], scan_type: str = "SYN", ...)`
+       * Functionality: Performs a scan using a list of "decoy" IP addresses in addition to the scanner's real
+          IP address. For each probe, the tool alternately sends packets (SYN for non-HTTP scans, or full HTTP
+          requests) using the real address and the decoy addresses as the source. For HTTP scans, it
+         integrates header mimicry and URL path variation techniques.
+       * Objective: Mask the true source of the scan by flooding legitimate traffic with a mix of requests
+         from multiple IP addresses, making it difficult for the target to determine who is actually scanning.
+
+
+   2. `fragmented_packet_scan(self, target_ip: str, target_port: int, frag_size: int = 8, overlap: bool =
+      False, tiny_fragment: bool = False)`
+       * Functionality: Sends fragmented IP packets, meaning packets divided into several smaller pieces. It
+         can also create overlapping fragments (overlap) or use very small fragments (tiny_fragment).
+       * Objective: Attempt to bypass firewalls or intrusion detection systems that do not correctly
+         reassemble fragments or have rules based on packet size. Overlapping fragments can also be used for
+         more sophisticated attacks.
+
+
+   3. `proxy_chaining_request(self, url: str, headers: Dict, max_chain: int = 3)`
+       * Functionality: Executes an HTTP/HTTPS request by routing traffic through a chain of multiple proxy
+         servers. The tool randomly selects a chain of available proxies.
+       * Objective: Obfuscate the origin of the request by passing it through multiple intermediaries, making
+         the traceability of the original source extremely difficult.
+
+
+   4. `perform_idle_scan(self, target_ip: str, target_port: int, zombie_ips: List[str], zombie_port: int = 80)`
+       * Functionality: Implements the "Idle Scan" (also known as "Zombie Scan"), a stealthy scanning technique
+         that uses an idle "zombie" host to probe the target. The tool monitors the IP fragmentation ID (IP ID)
+         of the zombie before and after sending a spoofed SYN packet (with the zombie's IP as the source) to the
+          target. The increment in the zombie's IP ID reveals whether the target responded to the spoofed
+         packet.
+       * Objective: Determine the state of a port on the target without directly sending packets from the
+         scanner's IP address, making the scan very difficult to detect and attribute.
+
+  ---
+
+
+  Supporting Utility Functions (used by Chameleon and Netghost)
+
+  Several utility functions are used by these sections to generate traffic variations and headers:
+
+
+   * `generate_random_header_case(header_name: str)`: Randomly changes the case of letters in an HTTP header
+     name (e.g., User-Agent can become user-agent or UsEr-AgEnT).
+   * `generate_spoofed_ip_headers()`: Creates common HTTP headers (X-Forwarded-For, Client-IP) with random IP
+     addresses to simulate a different origin.
+   * `generate_dynamic_user_agent()`: Generates a realistic and dynamic User-Agent, mimicking various
+     operating systems and browsers.
+   * `generate_url_path_variation(base_path: str, strategy_hints: Optional[Dict[str, Any]])`: Creates
+     variations of a URL path (e.g., adding . or //, double encoding, case variations) to bypass path-based
+     filters.
+   * `generate_query_param_variations(base_params: Optional[Dict[str, str]], strategy_hints:
+     Optional[Dict[str, Any]], num_extra_params: int)`: Constructs a query string with varied parameters,
+     including parameter pollution (HPP), obfuscation, order randomization, and various encodings.
+   * `generate_request_body(method: str, content_type_choice: str, strategy_hints: Optional[Dict[str, Any]])`:
+      Generates an HTTP request body (JSON, form, XML) based on the method and content type.
+
+
+  These sections and their methods form the core of your tool's advanced capabilities for performing
+  stealthy and resilient scans against modern network defenses.
+
+
+✦ Voici la même explication détaillée, mais entièrement en français.
+
+  Présentation du Projet `network_tool(NetworkSensei Ultra)`
+
+
+  Le projet network_tool est un outil d'analyse de réseau et d'audit de sécurité sophistiqué, conçu pour
+  fournir une analyse approfondie des cibles réseau. Il va au-delà de la simple analyse de ports en
+  intégrant des fonctionnalités avancées pour l'identification de services, la détection et le contournement
+   de WAF (Web Application Firewall), la vérification de vulnérabilités et des techniques d'analyse furtive.
+   Le projet est modulaire, avec différents composants responsables de tâches spécifiques, ce qui le rend
+  extensible et facile à maintenir.
+
+  Composants Principaux
+
+
+   * `main.py`: Le point d'entrée de l'application. Il gère les entrées de l'utilisateur, orchestre le
+     processus d'analyse et génère le rapport final.
+   * `scanner.py`: Le cœur du projet, contenant la classe NetworkScanner. Cette classe implémente la logique
+     d'analyse principale, y compris l'analyse des ports, la détection des services, la détection des WAF et
+     diverses techniques d'évasion.
+   * `config.py`: Définit la classe ScannerConfig, qui contient la configuration pour une analyse, comme les
+     adresses IP cibles, les ports et les fonctionnalités activées.
+   * `bypass.py`: Contient la classe BypassStrategy, responsable de la génération et de l'exécution de
+     diverses techniques de contournement de WAF et d'IDS.
+   * `service_probe.py`: Implémente la classe ServiceProbe, qui est utilisée pour identifier les services
+     fonctionnant sur les ports ouverts.
+   * `ssl_analysis.py`: Contient la classe SSLAnalysis, qui effectue une analyse détaillée des configurations
+     SSL/TLS.
+   * `vulnerabilities.py`: Implémente la classe VulnerabilityChecker, qui recherche les vulnérabilités connues
+      en fonction des informations recueillies.
+   * `report.py`: Définit la classe ReportGenerator, qui crée des rapports d'analyse détaillés et lisibles par
+      l'homme.
+   * `run_full_scan.py`: Un script qui démontre une analyse complète en utilisant toutes les fonctionnalités
+     avancées du NetworkScanner.
+
+  `scanner.py` en Détail
+
+
+  Le fichier scanner.py est le composant le plus critique du projet network_tool. Il contient la classe
+  NetworkScanner, qui est responsable de la logique d'analyse principale. Examinons ses fonctionnalités clés
+   :
+
+  Classe `NetworkScanner`
+
+
+  La classe NetworkScanner est initialisée avec un objet ScannerConfig, qui définit les paramètres de
+  l'analyse. Elle initialise également des instances des autres composants principaux, tels que
+  ServiceProbe, SSLAnalysis et VulnerabilityChecker.
+
+  Méthodes Clés et Leurs Fonctions :
+
+   * `__init__(self, config: ScannerConfig)`: Le constructeur de la classe NetworkScanner. Il initialise la
+     configuration et tous les composants nécessaires à l'analyse.
+
+
+   * `_load_lstm_model(self) -> Optional[Any]`: Cette méthode est un placeholder pour charger un modèle LSTM
+     (Long Short-Term Memory) pré-entraîné pour la prédiction de services. Dans un scénario réel, cela serait
+     utilisé pour une identification de service plus précise basée sur les modèles de trafic réseau.
+
+
+   * `_load_proxies(self) -> List[Dict[str, Any]]`: Charge une liste de proxys à partir de la configuration.
+     Ces proxys peuvent être utilisés pour anonymiser l'analyse et contourner les blocages basés sur l'IP.
+
+   * `_infer_proxy_geo(self, proxy_url: str) -> str`: Déduit l'emplacement géographique d'un proxy en fonction
+      de son URL. Cela peut être utile pour sélectionner des proxys de régions spécifiques.
+
+
+   * `report_proxy_failure(self, proxy_url: str) -> None`: Signale un échec pour un proxy donné. Cela aide à
+     gérer la santé de la liste de proxys et à éviter l'utilisation de proxys non fiables.
+
+
+   * `_get_next_proxy(self, prefer_different_geo_from: Optional[str] = None) -> Optional[Dict[str, Any]]`:
+     Sélectionne le prochain proxy disponible dans la liste, en priorisant les proxys sains et en permettant
+     éventuellement une diversité géographique.
+
+
+   * `_get_random_source_ip(self) -> Optional[str]`: Génère une adresse IP source aléatoire pour le spoofing.
+     Ceci est utilisé dans les scans de type "decoy" (leurre) pour masquer la véritable origine de l'analyse.
+
+
+   * `_extract_features(self, pkt: IP, response_time: float) -> Any`: Extrait des caractéristiques d'un paquet
+      réseau, telles que le TTL (Time to Live) et le temps de réponse. Ces caractéristiques peuvent être
+     utilisées pour la prédiction de services et la prise d'empreintes de l'OS.
+
+
+   * `_predict_service_lstm(self, features: Any) -> Tuple[str, float]`: Un placeholder pour prédire un service
+      réseau à l'aide d'un modèle LSTM chargé.
+
+
+   * `_predict_service_heuristic(self, pkt: IP, response_time: float) -> Tuple[str, float]`: Prédit un service
+      réseau à l'aide de règles heuristiques basées sur le paquet reçu.
+
+
+   * `traffic_pacing_control(self, base_delay: float = 0.1, jitter: float = 0.05, multiplier: float = 1.0)`:
+     Contrôle le débit du trafic en introduisant des délais variables entre les paquets. Cela peut aider à
+     échapper aux mécanismes de limitation de débit.
+
+
+   * `os_fingerprint_evasion(self, os_type: str = "Linux") -> Dict[str, Any]`: Génère des paramètres de
+     paquets (TTL, taille de la fenêtre, options TCP) pour imiter un système d'exploitation spécifique. Cela
+     peut être utilisé pour contourner les règles de filtrage basées sur l'OS.
+
+
+   * `http_header_mimicry(self, target_profile: str = "chrome_windows", strategy_hints: Optional[Dict[str,
+     Any]] = None) -> Dict[str, str]`: Génère des en-têtes HTTP réalistes pour imiter un client spécifique,
+     comme un navigateur web ou un robot de moteur de recherche. C'est une technique clé pour échapper aux WAF
+      qui reposent sur le filtrage basé sur le User-Agent et d'autres en-têtes.
+
+
+   * `decoy_scan(self, target_ip: str, target_port: int, decoys: List[str], ...)`: Effectue une analyse de
+     type "decoy" (leurre), qui utilise une liste d'adresses IP leurres pour masquer la véritable source de
+     l'analyse. Cela rend difficile pour la cible d'identifier le véritable attaquant.
+
+
+   * `fragmented_packet_scan(self, target_ip: str, target_port: int, ...)`: Envoie des paquets IP fragmentés à
+      la cible. Cette technique peut être utilisée pour contourner les filtres de paquets simples qui ne
+     réassemblent pas correctement les paquets fragmentés.
+
+
+   * `proxy_chaining_request(self, url: str, headers: Dict, max_chain: int = 3) -> Dict[str, Any]`: Envoie une
+      requête à travers une chaîne de proxys, anonymisant davantage l'analyse et rendant plus difficile de
+     remonter à la source.
+
+
+   * `resolve_domain(self, domain: str) -> Set[str]`: Résout un nom de domaine en un ensemble d'adresses IP,
+     avec des tentatives de contournement du filtrage basé sur le DNS.
+
+
+   * `_serialize_ip_packet(self, packet: Optional[Any]) -> Dict[str, Any]`: Convertit un objet paquet Scapy en
+      un dictionnaire sérialisable en JSON pour les rapports.
+
+   * `tcp_connect(self, ip: str, port: int) -> Dict[str, Any]`: Effectue une simple analyse de connexion TCP
+     pour vérifier si un port est ouvert.
+
+
+   * `probe_with_ack_fin(self, ip: str, port: int) -> Dict[str, Any]`: Sonde un port avec des paquets TCP ACK
+     et FIN pour déterminer s'il est ouvert, fermé ou filtré.
+
+
+   * `probe_closed_port_advanced(self, ip: str, port: int) -> Dict[str, Any]`: Une méthode avancée pour sonder
+      les ports fermés ou filtrés.
+
+
+   * `_craft_advanced_packet(self, ip: str, port: int, strategy: Dict) -> Any`: Crée un paquet Scapy
+     personnalisé basé sur une stratégie de contournement donnée.
+
+   * `_select_bypass_strategy(self, protection: str, attempt: int) -> Dict`: Sélectionne une stratégie de
+     contournement en fonction du mécanisme de protection détecté.
+
+
+   * `_get_ip_id(self, ip: str, ...)`: Une méthode utilitaire pour obtenir l'ID IP initial d'un hôte et
+     vérifier la prévisibilité de son incrémentation. C'est un composant crucial de l'Idle Scan.
+
+
+   * `perform_idle_scan(self, target_ip: str, target_port: int, ...)`: Effectue un Idle Scan (également connu
+     sous le nom de Zombie Scan), qui est une technique d'analyse très furtive qui utilise un hôte "zombie"
+     pour sonder indirectement la cible.
+
+
+   * `_deep_service_probe(self, ip: str, port: int, ...)`: Effectue une sonde de service approfondie pour
+     identifier le service fonctionnant sur un port.
+
+
+   * `_get_ssl_contexts(self) -> List[Dict[str, Any]]`: Crée une liste de contextes SSL à essayer, du plus
+     sécurisé au plus compatible.
+
+   * `_execute_http_bypass_strategies(self, ip: str, port: int, ...)`: Orchestre diverses stratégies de
+     contournement HTTP pour les WAF et autres mesures de sécurité.
+
+
+   * `orchestrate_waf_bypass(self, ip: str, port: int, ...)`: Orchestre intelligemment les stratégies de
+     contournement de WAF en fonction du WAF détecté et des réponses précédentes.
+
+
+   * `_execute_single_bypass_attempt(self, ip: str, port: int, ...)`: Exécute une seule tentative de
+     contournement HTTP basée sur une configuration donnée.
+
+
+   * `_detect_waf_from_response(self, response: requests.Response, response_text: str) -> Dict[str, Any]`:
+     Détecte un WAF à partir d'une réponse HTTP en se basant sur un ensemble de signatures.
+
+
+   * `_analyze_response_for_waf_feedback(self, response: Optional[requests.Response], detected_waf_info:
+     Dict[str, Any]) -> Dict[str, Any]`: Analyse la réponse d'une tentative de contournement pour fournir un
+     retour sur son succès ou son échec.
+
+  Conclusion
+
+
+  Le projet network_tool est un outil d'analyse de réseau puissant et polyvalent qui combine un large
+  éventail de techniques pour fournir une évaluation de sécurité complète. Sa conception modulaire et ses
+  fonctionnalités avancées en font un atout précieux pour les professionnels de la sécurité et les
+  chercheurs. Le fichier scanner.py, avec sa classe NetworkScanner, est le cœur du projet, mettant en œuvre
+  la logique sophistiquée qui pilote le processus d'analyse et d'investigation.
+
+/////////////
+
+ Voici une description détaillée des sections "Chameleon" et "Netghost" de votre outil, basées sur l'analyse
+  du fichier scanner.py. Ces sections sont conçues pour améliorer la furtivité et l'efficacité des scans en
+  contournant les mécanismes de détection et de protection.
+
+  ---
+
+  Section: Chameleon - Techniques d'évasion et de mimétisme
+
+
+  La section "Chameleon" se concentre sur les techniques d'évasion et de mimétisme, permettant à l'outil de
+  se fondre dans le trafic réseau normal ou d'imiter des comportements de clients spécifiques pour éviter la
+   détection par les systèmes de sécurité (comme les WAFs ou les IDS/IPS).
+
+
+  Méthodes et Fonctions Clés:
+
+
+   1. `traffic_pacing_control(self, base_delay: float = 0.1, jitter: float = 0.05, multiplier: float = 1.0)`
+       * Fonctionnement: Cette méthode introduit des délais variables entre l'envoi des paquets ou des
+         requêtes. Au lieu d'envoyer des requêtes en rafale (ce qui est souvent un indicateur de scan), elle
+         simule un comportement plus humain ou plus lent en ajoutant un délai aléatoire (avec un jitter) à un
+         délai de base.
+       * Objectif: Éviter la détection basée sur le volume ou la vitesse du trafic, qui pourrait déclencher
+         des alertes de scan.
+
+
+   2. `os_fingerprint_evasion(self, os_type: str = "Linux") -> Dict[str, Any]`
+       * Fonctionnement: Génère des paramètres de paquets IP et TCP (comme le Time-To-Live (TTL), la taille de
+          la fenêtre TCP (Window Size) et les options TCP) qui sont typiques d'un système d'exploitation
+         spécifique (par exemple, Linux, Windows, iOS).
+       * Objectif: Masquer l'empreinte digitale du système d'exploitation réel de la machine qui effectue le
+         scan, en faisant croire aux systèmes de détection que le trafic provient d'un OS différent et moins
+         suspect.
+
+
+   3. `http_header_mimicry(self, target_profile: str = "chrome_windows", strategy_hints: Optional[Dict[str,
+      Any]] = None) -> Dict[str, str]`
+       * Fonctionnement: Crée un ensemble d'en-têtes HTTP réalistes qui imitent le comportement d'un
+         navigateur web ou d'un client HTTP spécifique (par exemple, Chrome sous Windows, Firefox sous macOS,
+         ou même Googlebot). Elle peut également appliquer des stratégies avancées comme la modification
+         aléatoire de la casse des en-têtes (random_header_case), la randomisation de l'ordre des en-têtes
+         (random_header_order), l'ajout d'en-têtes aléatoires (add_extra_random_headers), ou le spoofing
+         d'en-têtes IP (spoof_ip_headers).
+       * Objectif: Contourner les WAFs et autres systèmes de sécurité qui analysent les en-têtes HTTP pour
+         détecter les requêtes suspectes ou non-standard. En imitant un client légitime, les requêtes de scan
+         ont plus de chances de passer inaperçues.
+
+  ---
+
+
+  Section: Netghost - Techniques d'obscurcissement et de scan avancé
+
+  La section "Netghost" est dédiée aux techniques d'obscurcissement et de scan avancé, visant à rendre
+  l'origine du scan difficile à tracer ou à exploiter des faiblesses dans la manière dont les systèmes de
+  sécurité traitent le trafic.
+
+
+  Méthodes et Fonctions Clés:
+
+
+   1. `decoy_scan(self, target_ip: str, target_port: int, decoys: List[str], scan_type: str = "SYN", ...)`
+       * Fonctionnement: Effectue un scan en utilisant une liste d'adresses IP "leurres" (decoys) en plus de
+         l'adresse IP réelle du scanner. Pour chaque sonde, l'outil envoie des paquets (SYN pour les scans
+         non-HTTP, ou requêtes HTTP complètes) en utilisant alternativement l'adresse réelle et les adresses
+         leurres comme source. Pour les scans HTTP, elle intègre des techniques de mimétisme d'en-têtes et de
+         variation de chemins d'URL.
+       * Objectif: Masquer la véritable source du scan en noyant le trafic légitime dans un mélange de
+         requêtes provenant de multiples adresses IP, rendant difficile pour la cible de déterminer qui scanne
+          réellement.
+
+
+   2. `fragmented_packet_scan(self, target_ip: str, target_port: int, frag_size: int = 8, overlap: bool =
+      False, tiny_fragment: bool = False)`
+       * Fonctionnement: Envoie des paquets IP fragmentés, c'est-à-dire des paquets divisés en plusieurs
+         morceaux plus petits. Elle peut également créer des fragments qui se chevauchent (overlap) ou
+         utiliser des fragments très petits (tiny_fragment).
+       * Objectif: Tenter de contourner les pare-feu ou les systèmes de détection d'intrusion qui ne
+         réassemblent pas correctement les fragments ou qui ont des règles basées sur la taille des paquets.
+         Les fragments qui se chevauchent peuvent également être utilisés pour des attaques plus
+         sophistiquées.
+
+
+   3. `proxy_chaining_request(self, url: str, headers: Dict, max_chain: int = 3)`
+       * Fonctionnement: Effectue une requête HTTP/HTTPS en acheminant le trafic à travers une chaîne de
+         plusieurs serveurs proxy. L'outil sélectionne aléatoirement une chaîne de proxies disponibles.
+       * Objectif: Obscurcir l'origine de la requête en la faisant passer par plusieurs intermédiaires,
+         rendant la traçabilité de la source originale extrêmement difficile.
+
+
+   4. `perform_idle_scan(self, target_ip: str, target_port: int, zombie_ips: List[str], zombie_port: int = 80)`
+       * Fonctionnement: Implémente le "Idle Scan" (également connu sous le nom de "Zombie Scan"), une technique
+          de scan furtive qui utilise un hôte "zombie" inactif pour sonder la cible. L'outil surveille l'ID de
+         fragmentation IP (IP ID) du zombie avant et après l'envoi d'un paquet SYN spoofé (avec l'IP du zombie
+         comme source) à la cible. L'incrément de l'IP ID du zombie révèle si la cible a répondu au paquet
+         spoofé.
+       * Objectif: Déterminer l'état d'un port sur la cible sans envoyer directement de paquets depuis
+         l'adresse IP du scanner, rendant le scan très difficile à détecter et à attribuer.
+
+  ---
+
+
+  Fonctions Utilitaires de Support (utilisées par Chameleon et Netghost)
+
+  Plusieurs fonctions utilitaires sont utilisées par ces sections pour générer des variations de trafic et
+  des en-têtes:
+
+
+   * `generate_random_header_case(header_name: str)`: Modifie aléatoirement la casse des lettres dans un nom
+     d'en-tête HTTP (ex: User-Agent peut devenir user-agent ou UsEr-AgEnT).
+   * `generate_spoofed_ip_headers()`: Crée des en-têtes HTTP courants (X-Forwarded-For, Client-IP) avec des
+     adresses IP aléatoires pour simuler une origine différente.
+   * `generate_dynamic_user_agent()`: Génère un User-Agent réaliste et dynamique, imitant divers systèmes
+     d'exploitation et navigateurs.
+   * `generate_url_path_variation(base_path: str, strategy_hints: Optional[Dict[str, Any]])`: Crée des
+     variations d'un chemin d'URL (ex: ajout de . ou //, encodage double, variations de casse) pour contourner
+      les filtres basés sur les chemins.
+   * `generate_query_param_variations(base_params: Optional[Dict[str, str]], strategy_hints:
+     Optional[Dict[str, Any]], num_extra_params: int)`: Construit une chaîne de requête avec des paramètres
+     variés, incluant la pollution de paramètres (HPP), l'obfuscation, la randomisation de l'ordre, et divers
+     encodages.
+   * `generate_request_body(method: str, content_type_choice: str, strategy_hints: Optional[Dict[str, Any]])`:
+      Génère un corps de requête HTTP (JSON, form, XML) en fonction de la méthode et du type de contenu.
+
+
+  Ces sections et leurs méthodes constituent le cœur des capacités avancées de votre outil pour effectuer
+  des scans furtifs et résilients face aux défenses réseau modernes.
+
+////
+✦ La section "Chameleon" intègre des stratégies avancées de polymorphisme et de mimétisme comportemental,
+  permettant à l'agent de s'adapter dynamiquement aux empreintes numériques du trafic légitime. Cela inclut
+  l'obfuscation protocolaire, la stéganographie au niveau des paquets, et la génération de requêtes qui
+  émulent fidèlement les idiosyncrasies des clients ou applications cibles. L'objectif est de contourner les
+  mécanismes de détection basés sur les signatures, l'analyse heuristique et les modèles comportementaux des
+  systèmes de défense périmétriques, tels que les Web Application Firewalls (WAF), les Intrusion Detection
+  Systems (IDS) et les Intrusion Prevention Systems (IPS), en présentant une signature réseau indifférenciable
+   du bruit de fond opérationnel.
+
+╭───────────────────────────────────────────╮
+│  > ajoute des fonctions tres sophistiqué  │
+╰───────────────────────────────────────────╯
+
+✦ La section "Chameleon" intègre des stratégies avancées de polymorphisme et de mimétisme comportemental,
+  permettant à l'agent de s'adapter dynamiquement aux empreintes numériques du trafic légitime. Cela inclut
+  l'obfuscation protocolaire, la stéganographie au niveau des paquets, et la génération de requêtes qui
+  émulent fidèlement les idiosyncrasies des clients ou applications cibles.
+
+  Fonctions sophistiquées ajoutées :
+
+
+   * Mimétisme Protocolaire Adaptatif (MPA): Analyse en temps réel des flux de communication légitimes pour
+     générer des requêtes et des réponses qui imitent non seulement la structure des protocoles (HTTP, DNS,
+     TLS, etc.), mais aussi leurs comportements temporels et leurs séquences d'échanges, rendant la détection
+     par analyse comportementale extrêmement difficile.
+   * Obfuscation de Flux Temporels (OFT): Ajustement dynamique des débits, des tailles de paquets et des
+     intervalles d'envoi pour se fondre dans les schémas de trafic de fond, évitant les anomalies basées sur
+     le volume ou la fréquence.
+   * Génération de Bruit Polymorphique (GBP): Insertion de données aléatoires ou contextuellement pertinentes
+     (mais inoffensives) dans les communications pour masquer les signatures réelles et augmenter le ratio
+     signal/bruit pour les systèmes de détection.
+   * Empreinte Environnementale Active (EEA): Sonde discrètement l'environnement réseau pour identifier les
+     technologies de sécurité en place (versions de WAF, IDS/IPS, proxys) et adapte automatiquement les
+     techniques d'évasion pour cibler leurs vulnérabilités spécifiques ou leurs points aveugles connus.
+   * Canaux de Communication Décoys (CCD): Établissement de multiples canaux de communication simultanés, dont
+      certains sont des leurres, pour diluer l'activité malveillante et compliquer la corrélation des
+     événements par les systèmes de surveillance.
+
+
+  L'objectif est de contourner les mécanismes de détection basés sur les signatures, l'analyse heuristique
+  et les modèles comportementaux des systèmes de défense périmétriques, tels que les Web Application
+  Firewalls (WAF), les Intrusion Detection Systems (IDS) et les Intrusion Prevention Systems (IPS), en
+  présentant une signature réseau indifférenciable du bruit de fond opérationnel.
+
+////
+
+La section "Netghost" se consacre à l'ingénierie de techniques d'obscurcissement et de scan de pointe,
+  conçues pour masquer l'empreinte opérationnelle de l'attaquant et exploiter les vulnérabilités inhérentes
+  aux mécanismes de défense réseau. Cela inclut la dissimulation dynamique de l'origine, via des chaînes de
+  proxies polymorphiques et des réseaux de relais éphémères, rendant la traçabilité quasi impossible. Elle
+  intègre également des méthodes de scan furtif qui contournent les systèmes de détection d'intrusion (IDS),
+  les pare-feu à inspection d'état (stateful firewalls) et les passerelles de sécurité, en manipulant les
+  en-têtes de paquets, les séquences TCP/IP, et en exploitant les ambiguïtés ou les failles dans
+  l'implémentation des protocoles. L'objectif est de pénétrer les périmètres de sécurité sans déclencher
+  d'alertes, en se fondant dans le bruit de fond légitime ou en provoquant des comportements inattendus des
+  systèmes de défense.
+
+

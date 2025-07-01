@@ -1,0 +1,1706 @@
+{
+    "scan_summary": {
+        "timestamp": "2025-07-01T04:38:48.496652",
+        "total_ports_scanned": 16,
+        "ports_open": 16
+    },
+    "scan_results": [
+        {
+            "ip": "23.46.225.31",
+            "port": 21,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:36:07.743828",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 21,
+                        "sport": 29687,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:ftp S"
+                    }
+                },
+                "deep_probe": {
+                    "service": "ftp",
+                    "protocol": "ftp",
+                    "details": {},
+                    "confidence": 0.4,
+                    "error": "Timeout_SMTP_Probe"
+                },
+                "identified_service": "ftp",
+                "service_confidence": 0.4
+            },
+            "waf_detection": {},
+            "bypass_attempts": {},
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "error",
+                    "details": {},
+                    "error": "[Errno 11001] getaddrinfo failed"
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        },
+        {
+            "ip": "23.46.225.31",
+            "port": 22,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:36:13.960850",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 22,
+                        "sport": 40138,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:ssh S"
+                    }
+                },
+                "deep_probe": {
+                    "service": "ssh",
+                    "protocol": "ssh",
+                    "details": {},
+                    "confidence": 0.5
+                },
+                "identified_service": "ssh",
+                "service_confidence": 0.5
+            },
+            "waf_detection": {},
+            "bypass_attempts": {},
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "error",
+                    "details": {},
+                    "error": "[Errno 11001] getaddrinfo failed"
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        },
+        {
+            "ip": "23.46.225.31",
+            "port": 23,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:36:21.050088",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 23,
+                        "sport": 18945,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:telnet S"
+                    }
+                },
+                "deep_probe": {
+                    "service": "unknown",
+                    "protocol": "telnet",
+                    "details": {},
+                    "confidence": 0.0
+                }
+            },
+            "waf_detection": {},
+            "bypass_attempts": {},
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "error",
+                    "details": {},
+                    "error": "[Errno 11001] getaddrinfo failed"
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        },
+        {
+            "ip": "23.46.225.31",
+            "port": 25,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:36:26.084736",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 25,
+                        "sport": 18525,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:smtp S"
+                    }
+                },
+                "deep_probe": {
+                    "service": "unknown",
+                    "protocol": "smtp",
+                    "details": {
+                        "error": "'NetworkScanner' object has no attribute '_probe_smtp_service'"
+                    },
+                    "confidence": 0.0
+                }
+            },
+            "waf_detection": {},
+            "bypass_attempts": {},
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "error",
+                    "details": {},
+                    "error": "[Errno 11001] getaddrinfo failed"
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        },
+        {
+            "ip": "23.46.225.31",
+            "port": 53,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:36:31.185308",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 53,
+                        "sport": 62036,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:domain S"
+                    }
+                },
+                "deep_probe": {
+                    "service": "unknown",
+                    "protocol": "dns",
+                    "details": "No response to UDP probe.",
+                    "confidence": 0.0,
+                    "status": "open|filtered",
+                    "error": null
+                }
+            },
+            "waf_detection": {},
+            "bypass_attempts": {},
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "error",
+                    "details": {},
+                    "error": "[Errno 11001] getaddrinfo failed"
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        },
+        {
+            "ip": "23.46.225.31",
+            "port": 80,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:36:39.174118",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 80,
+                        "sport": 51070,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:http S"
+                    }
+                },
+                "decoy_scan_details": {
+                    "http_status_code": 400,
+                    "http_headers": {
+                        "Server": "AkamaiGHost",
+                        "Mime-Version": "1.0",
+                        "Content-Type": "text/html",
+                        "Content-Length": "310",
+                        "Expires": "Tue, 01 Jul 2025 08:36:42 GMT",
+                        "Date": "Tue, 01 Jul 2025 08:36:42 GMT",
+                        "Connection": "close"
+                    },
+                    "http_profile_used": "chrome_windows",
+                    "url_probed": "http://23.46.225.31:80/.",
+                    "source_ip_simulated": "72.3.177.104",
+                    "method_used": "GET",
+                    "detected_waf": {
+                        "waf": "Akamai",
+                        "confidence": 100.0,
+                        "score": 10,
+                        "threshold": 8,
+                        "details": [
+                            "Header Server matches pattern AkamaiGHost|Akamai",
+                            "Status code 400 matches allowed codes"
+                        ]
+                    }
+                },
+                "deep_probe": {
+                    "service": "AkamaiGHost",
+                    "protocol": "http",
+                    "details": {
+                        "initial_get": {
+                            "status_code": 400,
+                            "headers": {
+                                "Server": "AkamaiGHost",
+                                "Mime-Version": "1.0",
+                                "Content-Type": "text/html",
+                                "Content-Length": "310",
+                                "Expires": "Tue, 01 Jul 2025 08:36:42 GMT",
+                                "Date": "Tue, 01 Jul 2025 08:36:42 GMT",
+                                "Connection": "close"
+                            },
+                            "ssl_profile_used": "none",
+                            "content_preview": "<HTML><HEAD>\n<TITLE>Invalid URL</TITLE>\n</HEAD><BODY>\n<H1>Invalid URL</H1>\nThe requested URL \"&#91;no&#32;URL&#93;\", is invalid.<p>\nReference&#32;&#35;9&#46;ab02c417&#46;1751359002&#46;9c8227b\n<P>https&#58;&#47;&#47;errors&#46;edgesuite&#46;net&#47;9&#46;ab02c417&#46;1751359002&#46;9c8227b</P>\n</BODY></HTML>\n"
+                        },
+                        "waf": {
+                            "waf": "Akamai",
+                            "confidence": 100.0,
+                            "score": 10,
+                            "threshold": 8,
+                            "details": [
+                                "Header Server matches pattern AkamaiGHost|Akamai",
+                                "Status code 400 matches allowed codes"
+                            ]
+                        },
+                        "bypass_attempts": {
+                            "bypassed": false,
+                            "details": {
+                                "attempts": [
+                                    {
+                                        "name": "Path & Header Variation",
+                                        "method": "GET",
+                                        "path": "/%2e",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "193.45.50.213",
+                                            "Client-IP": "67.141.115.205",
+                                            "X-Original-URL": "/admin",
+                                            "X-Rewrite-URL": "/admin",
+                                            "Referer": "http://carnival.com/"
+                                        }
+                                    },
+                                    {
+                                        "name": "POST with HPP",
+                                        "method": "POST",
+                                        "path": "/?null_param%25008=value&_p655=8097",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252",
+                                            "Content-Type": "application/x-www-form-urlencoded",
+                                            "Content-Length": "9"
+                                        }
+                                    },
+                                    {
+                                        "name": "SQLi Probe (GET)",
+                                        "method": "GET",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252"
+                                        }
+                                    },
+                                    {
+                                        "name": "Googlebot UA",
+                                        "method": "GET",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                                            "Connection": "close",
+                                            "Accept-Language": "*",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252"
+                                        }
+                                    },
+                                    {
+                                        "name": "Fragmented Request Header",
+                                        "method": "GET",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252",
+                                            "Range": "bytes=0-10"
+                                        }
+                                    },
+                                    {
+                                        "name": "HTTP Method Tampering (GET as POST)",
+                                        "method": "POST",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252",
+                                            "X-HTTP-Method-Override": "GET",
+                                            "Content-Type": "application/x-www-form-urlencoded",
+                                            "Content-Length": "11"
+                                        }
+                                    },
+                                    {
+                                        "name": "HTTP Method Tampering (HEAD)",
+                                        "method": "HEAD",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252"
+                                        }
+                                    },
+                                    {
+                                        "name": "HTTP Method Tampering (OPTIONS)",
+                                        "method": "OPTIONS",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252",
+                                            "Content-Length": "0"
+                                        }
+                                    },
+                                    {
+                                        "name": "Content-Encoding Identity",
+                                        "method": "GET",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "identity",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252"
+                                        }
+                                    },
+                                    {
+                                        "name": "Content-Encoding Deflate",
+                                        "method": "GET",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "deflate",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252"
+                                        }
+                                    },
+                                    {
+                                        "name": "Null Byte Path Injection",
+                                        "method": "GET",
+                                        "path": "/%00/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252"
+                                        }
+                                    },
+                                    {
+                                        "name": "Double Encoded Path",
+                                        "error": "Failed to parse: http://23.46.225.31:80%2Fadmin"
+                                    },
+                                    {
+                                        "name": "Double Encoded Path 2",
+                                        "error": "Failed to parse: http://23.46.225.31:80%252Fadmin"
+                                    },
+                                    {
+                                        "name": "Unicode Encoded Path",
+                                        "method": "GET",
+                                        "path": "/%u002fadmin",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252"
+                                        }
+                                    },
+                                    {
+                                        "name": "Random Header Order",
+                                        "method": "GET",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252",
+                                            "Sec-Fetch-Site": "none",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "Sec-Fetch-User": "?1"
+                                        }
+                                    },
+                                    {
+                                        "name": "Invalid Cookie",
+                                        "method": "GET",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252",
+                                            "Cookie": "invalid_session_id=12345; path=/; domain=example.com"
+                                        }
+                                    },
+                                    {
+                                        "name": "Spoofed Referer",
+                                        "method": "GET",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252",
+                                            "Referer": "http://malicious.com/"
+                                        }
+                                    },
+                                    {
+                                        "name": "Spoofed Origin",
+                                        "method": "GET",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252",
+                                            "Origin": "http://malicious.com"
+                                        }
+                                    },
+                                    {
+                                        "name": "HTTP/1.0 Downgrade",
+                                        "method": "GET",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252"
+                                        }
+                                    },
+                                    {
+                                        "name": "Random Query Param",
+                                        "method": "GET",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252"
+                                        }
+                                    },
+                                    {
+                                        "name": "X-Forwarded-Host Bypass",
+                                        "method": "GET",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252",
+                                            "X-Forwarded-Host": "localhost"
+                                        }
+                                    },
+                                    {
+                                        "name": "Content-Type Bypass (JSON)",
+                                        "method": "POST",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252",
+                                            "Content-Type": "application/json",
+                                            "Content-Length": "16"
+                                        }
+                                    },
+                                    {
+                                        "name": "Content-Type Bypass (XML)",
+                                        "method": "POST",
+                                        "path": "/",
+                                        "status_code": 400,
+                                        "headers_sent": {
+                                            "User-Agent": "Mozilla/5.0 (Android 10; Mobile) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+                                            "Accept-Encoding": "gzip, deflate, br",
+                                            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                                            "Connection": "close",
+                                            "Accept-Language": "en-US,en;q=0.9",
+                                            "Sec-Fetch-Dest": "document",
+                                            "Sec-Fetch-Mode": "navigate",
+                                            "Sec-Fetch-Site": "none",
+                                            "Sec-Fetch-User": "?1",
+                                            "Upgrade-Insecure-Requests": "1",
+                                            "X-Forwarded-For": "144.108.56.94",
+                                            "Client-IP": "24.161.219.252",
+                                            "Content-Type": "application/xml",
+                                            "Content-Length": "29"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "confidence": 0.7
+                },
+                "identified_service": "AkamaiGHost",
+                "service_confidence": 0.7
+            },
+            "waf_detection": {
+                "waf": "Akamai",
+                "confidence": 100.0,
+                "error": null,
+                "details": [
+                    {
+                        "method": "GET",
+                        "url_probed": "http://23.46.225.31:80/",
+                        "params_probed": {
+                            "test_param_46": "<script>alert('WAF_Test')</script>"
+                        },
+                        "payload_used_in_body": false,
+                        "status_code": 400,
+                        "detected_waf_on_probe": "Akamai",
+                        "probe_waf_confidence": 100.0,
+                        "probe_waf_details": [
+                            "Header Server matches pattern AkamaiGHost|Akamai",
+                            "Status code 400 matches allowed codes"
+                        ]
+                    }
+                ]
+            },
+            "bypass_attempts": {
+                "status": "unknown",
+                "details": [
+                    {
+                        "error": "http://23.46.225.31:80-- /\\*/--.?_CSｒF/*coｍｍŅŎt*/449=#>2396&_lａnG980=5806&_UIｄ143=<!-- -->1987&paRＡm1=val_1385&paRＡm1=vaｌue1",
+                        "attempt_details": {
+                            "headers": {
+                                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                                "Accept-Language": "en-US,en;q=0.5",
+                                "Accept-Encoding": "gzip, deflate, br",
+                                "X-Forwarded-For": "143.232.57.51",
+                                "Client-IP": "120.140.54.215",
+                                "User-Agent": "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)",
+                                "Referer": "https://carnival.com/"
+                            },
+                            "path": "-- /\\*/--.",
+                            "query": "_CSｒF/*coｍｍŅŎt*/449=#>2396&_lａnG980=5806&_UIｄ143=<!-- -->1987&paRＡm1=val_1385&paRＡm1=vaｌue1",
+                            "method": "HEAD",
+                            "body": null,
+                            "content_type": "text/plain"
+                        }
+                    },
+                    {
+                        "error": "http://23.46.225.31:80<!-- -->/*!12345*/<!-- -->/?PġRaM1=val_1277&_U#ｉd867=9113&_t#>ｒŁＣＥ3/**/98=2958&PARaĭ1=vaŌue1",
+                        "attempt_details": {
+                            "headers": {
+                                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                                "Accept-Language": "en-US,en;q=0.5",
+                                "Accept-Encoding": "gzip, deflate, br",
+                                "X-Forwarded-For": "99.94.230.228",
+                                "Client-IP": "83.224.233.45",
+                                "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1",
+                                "Referer": "https://carnival.com/"
+                            },
+                            "path": "<!-- -->/*!12345*/<!-- -->/",
+                            "query": "PġRaM1=val_1277&_U#ｉd867=9113&_t#>ｒŁＣＥ3/**/98=2958&PARaĭ1=vaŌue1",
+                            "method": "TEST",
+                            "body": null,
+                            "content_type": "application/soap+xml"
+                        }
+                    },
+                    {
+                        "error": "http://23.46.225.31:80--/*!*//*Ńｏmmeｎt*//?_debUg952=9634&_ｌAnG543=577&P/**/arġM1=vaｌŕe1&Paｒ#AM1=vａl_1111",
+                        "attempt_details": {
+                            "headers": {
+                                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                                "Accept-Language": "en-US,en;q=0.5",
+                                "Accept-Encoding": "gzip, deflate, br",
+                                "X-Forwarded-For": "134.60.46.75",
+                                "Client-IP": "64.213.75.230",
+                                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                                "Referer": "https://carnival.com/"
+                            },
+                            "path": "--/*!*//*Ńｏmmeｎt*//",
+                            "query": "_debUg952=9634&_ｌAnG543=577&P/**/arġM1=vaｌŕe1&Paｒ#AM1=vａl_1111",
+                            "method": "CONNECT",
+                            "body": null,
+                            "content_type": "application/xml"
+                        }
+                    },
+                    {
+                        "error": "'ClientResponse' object has no attribute 'status_code'",
+                        "attempt_details": {
+                            "headers": {
+                                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                                "Accept-Language": "en-US,en;q=0.5",
+                                "Accept-Encoding": "gzip, deflate, br",
+                                "X-Forwarded-For": "123.129.5.140",
+                                "Client-IP": "62.107.96.163",
+                                "User-Agent": "Python/3.9 aiohttp/3.8.1",
+                                "Referer": "https://carnival.com/"
+                            },
+                            "path": "/%25/*!*/2e",
+                            "query": "_ｔRAcE611=6238&ｐaＲａM1=ｖal_112//7&_lAＮｇ120=1&pŁRaＭ1=vŁｌｕe1&_DĥBug551\\*/=6649",
+                            "method": "DEBUG",
+                            "body": null,
+                            "content_type": "application/javascript"
+                        }
+                    },
+                    {
+                        "error": "'ClientResponse' object has no attribute 'status_code'",
+                        "attempt_details": {
+                            "headers": {
+                                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                                "Accept-Language": "en-US,en;q=0.5",
+                                "Accept-Encoding": "gzip, deflate, br",
+                                "X-Forwarded-For": "235.54.250.67",
+                                "Client-IP": "243.73.85.220",
+                                "User-Agent": "Googlebot/2.1 (+http://www.google.com/bot.html)",
+                                "Referer": "https://carnival.com/"
+                            },
+                            "path": "#//*!*/./**/.;/",
+                            "query": "PａrAM1=val_1919&_CＳ\\*/rf948=5494#>&Ｐar#ġM1=vŁlue1",
+                            "method": "DEBUG",
+                            "body": null,
+                            "content_type": "image/gif"
+                        }
+                    },
+                    {
+                        "error": "'ClientResponse' object has no attribute 'status_code'",
+                        "attempt_details": {
+                            "headers": {
+                                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                                "Accept-Language": "en-US,en;q=0.5",
+                                "Accept-Encoding": "gzip, deflate, br",
+                                "X-Forwarded-For": "41.247.114.171",
+                                "Client-IP": "34.221.52.9",
+                                "User-Agent": "Akamai-Pragma-Client",
+                                "Pragma": "akamai-x-cache-on"
+                            },
+                            "path": "/.well-known/security.txt",
+                            "query": "",
+                            "method": "GET",
+                            "body": null,
+                            "content_type": null
+                        }
+                    },
+                    {
+                        "error": "'ClientResponse' object has no attribute 'status_code'",
+                        "attempt_details": {
+                            "headers": {
+                                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                                "X-Originating-IP": "127.0.0.1",
+                                "X-Forwarded-For": "127.0.0.1",
+                                "X-Remote-IP": "127.0.0.1",
+                                "X-Remote-Addr": "127.0.0.1",
+                                "X-Client-IP": "127.0.0.1",
+                                "X-Host": "127.0.0.1",
+                                "Referer": "https://carnival.com/admin"
+                            },
+                            "path": "/admin",
+                            "query": "",
+                            "method": "GET",
+                            "body": null,
+                            "content_type": null
+                        }
+                    },
+                    {
+                        "error": "'ClientResponse' object has no attribute 'status_code'",
+                        "attempt_details": {
+                            "headers": {
+                                "User-Agent": "sqlmap/1.6.11#dev (http://sqlmap.org)",
+                                "Accept": "*/*",
+                                "Accept-Encoding": "gzip,deflate",
+                                "Connection": "close"
+                            },
+                            "path": "/index.php",
+                            "query": "id=1' OR '1'='1",
+                            "method": "GET",
+                            "body": null,
+                            "content_type": null
+                        }
+                    }
+                ],
+                "bypassed": false
+            },
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "blocked_by_waf",
+                    "details": {
+                        "http_status_code": 400,
+                        "http_headers": {
+                            "Server": "AkamaiGHost",
+                            "Mime-Version": "1.0",
+                            "Content-Type": "text/html",
+                            "Content-Length": "310",
+                            "Expires": "Tue, 01 Jul 2025 08:36:42 GMT",
+                            "Date": "Tue, 01 Jul 2025 08:36:42 GMT",
+                            "Connection": "close"
+                        },
+                        "http_profile_used": "chrome_windows",
+                        "url_probed": "http://23.46.225.31:80/.",
+                        "source_ip_simulated": "72.3.177.104",
+                        "method_used": "GET",
+                        "detected_waf": {
+                            "waf": "Akamai",
+                            "confidence": 100.0,
+                            "score": 10,
+                            "threshold": 8,
+                            "details": [
+                                "Header Server matches pattern AkamaiGHost|Akamai",
+                                "Status code 400 matches allowed codes"
+                            ]
+                        }
+                    }
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        },
+        {
+            "ip": "23.46.225.31",
+            "port": 110,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:36:56.465656",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 110,
+                        "sport": 3834,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:pop3 S"
+                    }
+                },
+                "deep_probe": {
+                    "service": "unknown",
+                    "protocol": "pop3",
+                    "details": {},
+                    "confidence": 0.0
+                }
+            },
+            "waf_detection": {},
+            "bypass_attempts": {},
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "error",
+                    "details": {},
+                    "error": "[Errno 11001] getaddrinfo failed"
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        },
+        {
+            "ip": "23.46.225.31",
+            "port": 143,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:37:01.514130",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 143,
+                        "sport": 3653,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:imap S"
+                    }
+                },
+                "deep_probe": {
+                    "service": "unknown",
+                    "protocol": "imap",
+                    "details": {},
+                    "confidence": 0.0
+                }
+            },
+            "waf_detection": {},
+            "bypass_attempts": {},
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "error",
+                    "details": {},
+                    "error": "[Errno 11001] getaddrinfo failed"
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        },
+        {
+            "ip": "23.46.225.31",
+            "port": 443,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:37:06.223448",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 443,
+                        "sport": 60361,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:https S"
+                    }
+                },
+                "deep_probe": {
+                    "service": "AkamaiGHost",
+                    "protocol": "https",
+                    "details": {
+                        "initial_get": {
+                            "status_code": 400,
+                            "headers": {
+                                "Server": "AkamaiGHost",
+                                "Mime-Version": "1.0",
+                                "Content-Type": "text/html",
+                                "Content-Length": "310",
+                                "Expires": "Tue, 01 Jul 2025 08:37:32 GMT",
+                                "Date": "Tue, 01 Jul 2025 08:37:32 GMT",
+                                "Connection": "close"
+                            },
+                            "ssl_profile_used": "default",
+                            "content_preview": "<HTML><HEAD>\n<TITLE>Invalid URL</TITLE>\n</HEAD><BODY>\n<H1>Invalid URL</H1>\nThe requested URL \"&#91;no&#32;URL&#93;\", is invalid.<p>\nReference&#32;&#35;9&#46;a502c417&#46;1751359052&#46;927ab2f\n<P>https&#58;&#47;&#47;errors&#46;edgesuite&#46;net&#47;9&#46;a502c417&#46;1751359052&#46;927ab2f</P>\n</BODY></HTML>\n"
+                        },
+                        "waf": {
+                            "waf": "Akamai",
+                            "confidence": 100.0,
+                            "score": 10,
+                            "threshold": 8,
+                            "details": [
+                                "Header Server matches pattern AkamaiGHost|Akamai",
+                                "Status code 400 matches allowed codes"
+                            ]
+                        },
+                        "bypass_attempts": {
+                            "bypassed": false,
+                            "details": {
+                                "attempts": [
+                                    {
+                                        "name": "Path & Header Variation",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "POST with HPP",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: /?null_param%25001=value&high_byte_param=value%25ff9&_p609=1219 (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "SQLi Probe (GET)",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "Googlebot UA",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "Fragmented Request Header",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "HTTP Method Tampering (GET as POST)",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "HTTP Method Tampering (HEAD)",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "HTTP Method Tampering (OPTIONS)",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "Content-Encoding Identity",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "Content-Encoding Deflate",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "Null Byte Path Injection",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: /%00/ (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "Double Encoded Path",
+                                        "error": "Failed to parse: https://23.46.225.31:443%2Fadmin"
+                                    },
+                                    {
+                                        "name": "Double Encoded Path 2",
+                                        "error": "Failed to parse: https://23.46.225.31:443%252Fadmin"
+                                    },
+                                    {
+                                        "name": "Unicode Encoded Path",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: /%25u002fadmin (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "Random Header Order",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "Invalid Cookie",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "Spoofed Referer",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "Spoofed Origin",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "HTTP/1.0 Downgrade",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "Random Query Param",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "X-Forwarded-Host Bypass",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "Content-Type Bypass (JSON)",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    },
+                                    {
+                                        "name": "Content-Type Bypass (XML)",
+                                        "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: / (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "confidence": 0.7
+                },
+                "identified_service": "AkamaiGHost",
+                "service_confidence": 0.7
+            },
+            "waf_detection": {
+                "waf": "Akamai",
+                "confidence": 100.0,
+                "error": null,
+                "details": [
+                    {
+                        "method": "GET",
+                        "url_probed": "https://23.46.225.31:443/",
+                        "params_probed": {
+                            "test_param_5": "<script>alert('WAF_Test')</script>"
+                        },
+                        "payload_used_in_body": false,
+                        "status_code": 400,
+                        "detected_waf_on_probe": "Akamai",
+                        "probe_waf_confidence": 100.0,
+                        "probe_waf_details": [
+                            "Header Server matches pattern AkamaiGHost|Akamai",
+                            "Status code 400 matches allowed codes"
+                        ]
+                    }
+                ]
+            },
+            "bypass_attempts": {
+                "status": "unknown",
+                "details": [
+                    {
+                        "error": "Cannot connect to host 23.46.225.31:443 ssl:True [SSLCertVerificationError: (1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: IP address mismatch, certificate is not valid for '23.46.225.31'. (_ssl.c:1028)\")]",
+                        "attempt_details": {
+                            "headers": {
+                                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                                "Accept-Language": "en-US,en;q=0.5",
+                                "Accept-Encoding": "gzip, deflate, br",
+                                "X-Forwarded-For": "184.121.28.186",
+                                "Client-IP": "47.201.52.196",
+                                "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1.1 Mobile/15E148 Safari/604.1",
+                                "Referer": "https://carnival.com/"
+                            },
+                            "path": "/<!-- -->..;/",
+                            "query": "_tRａCe273=4348&/*!12345*/pAraM//1=vａlŕŅ1",
+                            "method": "POST",
+                            "body": "key=value",
+                            "content_type": "text/html"
+                        }
+                    },
+                    {
+                        "error": "Cannot connect to host 23.46.225.31:443 ssl:True [SSLCertVerificationError: (1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: IP address mismatch, certificate is not valid for '23.46.225.31'. (_ssl.c:1028)\")]",
+                        "attempt_details": {
+                            "headers": {
+                                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                                "Accept-Language": "en-US,en;q=0.5",
+                                "Accept-Encoding": "gzip, deflate, br",
+                                "X-Forwarded-For": "214.97.69.16",
+                                "Client-IP": "58.249.120.210",
+                                "User-Agent": "Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14",
+                                "Referer": "https://carnival.com/"
+                            },
+                            "path": "#>//*comment*//*!*/%252e",
+                            "query": "_DEBug366=6730&p/**/aRAM1=value1",
+                            "method": "TRACE",
+                            "body": null,
+                            "content_type": "application/json"
+                        }
+                    },
+                    {
+                        "error": "Cannot connect to host 23.46.225.31:443 ssl:True [SSLCertVerificationError: (1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: IP address mismatch, certificate is not valid for '23.46.225.31'. (_ssl.c:1028)\")]",
+                        "attempt_details": {
+                            "headers": {
+                                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                                "Accept-Language": "en-US,en;q=0.5",
+                                "Accept-Encoding": "gzip, deflate, br",
+                                "X-Forwarded-For": "81.108.231.21",
+                                "Client-IP": "162.149.247.245",
+                                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0",
+                                "Referer": "https://carnival.com/"
+                            },
+                            "path": "/*!12345*/\\*/..;/",
+                            "query": "_Œet419=19-- 97&PaŒġM1=va#l_1816&_DeＢ/**/ug839=1555&PａrAＭ1=ｖａｌŕŅ1&_TŒAＣŅ566=5481",
+                            "method": "OPTIONS",
+                            "body": null,
+                            "content_type": "application/javascript"
+                        }
+                    },
+                    {
+                        "error": "https://23.46.225.31:443--#/*!*//?parＡm1=value1&parAｍ1=ŖaŌ#_180#>4",
+                        "attempt_details": {
+                            "headers": {
+                                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                                "Accept-Language": "en-US,en;q=0.5",
+                                "Accept-Encoding": "gzip, deflate, br",
+                                "X-Forwarded-For": "247.221.105.26",
+                                "Client-IP": "216.30.176.178",
+                                "User-Agent": "curl/7.81.0",
+                                "Referer": "https://carnival.com/"
+                            },
+                            "path": "--#/*!*//",
+                            "query": "parＡm1=value1&parAｍ1=ŖaŌ#_180#>4",
+                            "method": "GET",
+                            "body": null,
+                            "content_type": "application/x-www-form-urlencoded"
+                        }
+                    },
+                    {
+                        "error": "https://23.46.225.31:443%252/*coōmｅŎt*/F?p/*ｃomｍｅnt*/aŒaＭ1=/*!*/\\*vaｌue1&paraM1=ｖaŌ_1752",
+                        "attempt_details": {
+                            "headers": {
+                                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                                "Accept-Language": "en-US,en;q=0.5",
+                                "Accept-Encoding": "gzip, deflate, br",
+                                "X-Forwarded-For": "153.34.122.147",
+                                "Client-IP": "251.129.173.173",
+                                "User-Agent": "Python/3.9 aiohttp/3.8.1",
+                                "Referer": "https://carnival.com/"
+                            },
+                            "path": "%252/*coōmｅŎt*/F",
+                            "query": "p/*ｃomｍｅnt*/aŒaＭ1=/*!*/\\*vaｌue1&paraM1=ｖaŌ_1752",
+                            "method": "HEAD",
+                            "body": null,
+                            "content_type": "application/json; boundary=----WebKitFormBoundary"
+                        }
+                    },
+                    {
+                        "error": "Cannot connect to host 23.46.225.31:443 ssl:True [SSLCertVerificationError: (1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: IP address mismatch, certificate is not valid for '23.46.225.31'. (_ssl.c:1028)\")]",
+                        "attempt_details": {
+                            "headers": {
+                                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                                "Accept-Language": "en-US,en;q=0.5",
+                                "Accept-Encoding": "gzip, deflate, br",
+                                "X-Forwarded-For": "57.42.236.211",
+                                "Client-IP": "242.51.206.51",
+                                "User-Agent": "Akamai-Pragma-Client",
+                                "Pragma": "akamai-x-cache-on"
+                            },
+                            "path": "/.well-known/security.txt",
+                            "query": "",
+                            "method": "GET",
+                            "body": null,
+                            "content_type": null
+                        }
+                    },
+                    {
+                        "error": "Cannot connect to host 23.46.225.31:443 ssl:True [SSLCertVerificationError: (1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: IP address mismatch, certificate is not valid for '23.46.225.31'. (_ssl.c:1028)\")]",
+                        "attempt_details": {
+                            "headers": {
+                                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                                "X-Originating-IP": "127.0.0.1",
+                                "X-Forwarded-For": "127.0.0.1",
+                                "X-Remote-IP": "127.0.0.1",
+                                "X-Remote-Addr": "127.0.0.1",
+                                "X-Client-IP": "127.0.0.1",
+                                "X-Host": "127.0.0.1",
+                                "Referer": "https://carnival.com/admin"
+                            },
+                            "path": "/admin",
+                            "query": "",
+                            "method": "GET",
+                            "body": null,
+                            "content_type": null
+                        }
+                    },
+                    {
+                        "error": "Cannot connect to host 23.46.225.31:443 ssl:True [SSLCertVerificationError: (1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: IP address mismatch, certificate is not valid for '23.46.225.31'. (_ssl.c:1028)\")]",
+                        "attempt_details": {
+                            "headers": {
+                                "User-Agent": "sqlmap/1.6.11#dev (http://sqlmap.org)",
+                                "Accept": "*/*",
+                                "Accept-Encoding": "gzip,deflate",
+                                "Connection": "close"
+                            },
+                            "path": "/index.php",
+                            "query": "id=1' OR '1'='1",
+                            "method": "GET",
+                            "body": null,
+                            "content_type": null
+                        }
+                    }
+                ],
+                "bypassed": false
+            },
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "http_request_failed",
+                    "details": {},
+                    "error": "HTTPSConnectionPool(host='23.46.225.31', port=443): Max retries exceeded with url: /%E0%80%AE (Caused by SSLError(CertificateError(\"hostname '23.46.225.31' doesn't match either of 'carnival.com', 'carnival.co.nz', 'carnival.co.uk', 'carnival.com.au', 'failover.carnival.com', 'funpass.carnival.com', 'help.carnival.com.au', 'm.carnival.com', 'precruise.carnival.com', 'prodpreview.carnival.com', 'prodpreview.carnival.com.au', 'secure.carnival.com', 'services.carnival.co.uk', 'services.carnival.com', 'static.carnivalcloud.com', 'www.carnival.co.nz', 'www.carnival.co.uk', 'www.carnival.com', 'www.carnival.com.au'\")))"
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        },
+        {
+            "ip": "23.46.225.31",
+            "port": 445,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:37:46.893035",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 445,
+                        "sport": 50087,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:microsoft_ds S"
+                    }
+                },
+                "deep_probe": {
+                    "service": "unknown",
+                    "protocol": "smb",
+                    "details": {},
+                    "confidence": 0.0
+                }
+            },
+            "waf_detection": {},
+            "bypass_attempts": {},
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "error",
+                    "details": {},
+                    "error": "[Errno 11001] getaddrinfo failed"
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        },
+        {
+            "ip": "23.46.225.31",
+            "port": 3306,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:37:51.780396",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 3306,
+                        "sport": 37741,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:3306 S"
+                    }
+                },
+                "deep_probe": {
+                    "service": "unknown",
+                    "protocol": "mysql",
+                    "details": {},
+                    "confidence": 0.0
+                }
+            },
+            "waf_detection": {},
+            "bypass_attempts": {},
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "error",
+                    "details": {},
+                    "error": "[Errno 11001] getaddrinfo failed"
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        },
+        {
+            "ip": "23.46.225.31",
+            "port": 3389,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:37:56.710864",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 3389,
+                        "sport": 60698,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:ms_wbt_server S"
+                    }
+                },
+                "deep_probe": {
+                    "service": "unknown",
+                    "protocol": "rdp",
+                    "details": {},
+                    "confidence": 0.0
+                }
+            },
+            "waf_detection": {},
+            "bypass_attempts": {},
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "error",
+                    "details": {},
+                    "error": "[Errno 11001] getaddrinfo failed"
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        },
+        {
+            "ip": "23.46.225.31",
+            "port": 5432,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:38:01.899514",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 5432,
+                        "sport": 1388,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:5432 S"
+                    }
+                },
+                "deep_probe": {
+                    "service": "unknown",
+                    "protocol": "postgresql",
+                    "details": {},
+                    "confidence": 0.0
+                }
+            },
+            "waf_detection": {},
+            "bypass_attempts": {},
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "error",
+                    "details": {},
+                    "error": "[Errno 11001] getaddrinfo failed"
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        },
+        {
+            "ip": "23.46.225.31",
+            "port": 6379,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:38:06.878134",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 6379,
+                        "sport": 48279,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:6379 S"
+                    }
+                },
+                "deep_probe": {
+                    "service": "unknown",
+                    "protocol": "redis",
+                    "details": {},
+                    "confidence": 0.0
+                }
+            },
+            "waf_detection": {},
+            "bypass_attempts": {},
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "error",
+                    "details": {},
+                    "error": "[Errno 11001] getaddrinfo failed"
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        },
+        {
+            "ip": "23.46.225.31",
+            "port": 8080,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:38:11.706648",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 8080,
+                        "sport": 58135,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:8080 S"
+                    }
+                },
+                "deep_probe": {
+                    "service": "open_tcp_port",
+                    "protocol": "unknown",
+                    "details": {},
+                    "confidence": 0.2
+                },
+                "identified_service": "open_tcp_port",
+                "service_confidence": 0.2
+            },
+            "waf_detection": {
+                "waf": "none",
+                "confidence": 0.0,
+                "error": null,
+                "details": [
+                    {
+                        "path": "/",
+                        "error": "Timeout_WAF_Detect"
+                    },
+                    {
+                        "path": "/?id=1%20UNION%20SELECT%20NULL",
+                        "error": "Timeout_WAF_Detect"
+                    },
+                    {
+                        "path": "/admin",
+                        "error": "Timeout_WAF_Detect"
+                    }
+                ]
+            },
+            "bypass_attempts": {},
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "http_request_failed",
+                    "details": {},
+                    "error": "HTTPConnectionPool(host='23.46.225.31', port=8080): Read timed out. (read timeout=2.0)"
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        },
+        {
+            "ip": "23.46.225.31",
+            "port": 8443,
+            "domain": "carnival.com",
+            "timestamp": "2025-07-01T04:38:30.268488",
+            "status": "open",
+            "service_info": {
+                "tcp_connect": {
+                    "status": "open",
+                    "response_time": 0.12,
+                    "response": {
+                        "src": "10.12.12.6",
+                        "dst": "23.46.225.31",
+                        "dport": 8443,
+                        "sport": 59494,
+                        "summary": "IP / TCP 10.12.12.6:<RandShort> > 23.46.225.31:8443 S"
+                    }
+                },
+                "deep_probe": {
+                    "service": "open_tcp_port",
+                    "protocol": "unknown",
+                    "details": {},
+                    "confidence": 0.2
+                },
+                "identified_service": "open_tcp_port",
+                "service_confidence": 0.2
+            },
+            "waf_detection": {
+                "waf": "none",
+                "confidence": 0.0,
+                "error": null,
+                "details": [
+                    {
+                        "path": "/",
+                        "error": "Connection_OSError: HTTPSConnectionPool(host='23.46.225.31', port=8443): Max retries exceeded with url: /?test_param_96=%3Cscript%3Ealert%28%27WAF_Test%27%29%3C%2Fscript%3E (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000002A531DABED0>, 'Connection to 23.46.225.31 timed out. (connect timeout=2.0)'))"
+                    },
+                    {
+                        "path": "/?id=1%20UNION%20SELECT%20NULL",
+                        "error": "Connection_OSError: HTTPSConnectionPool(host='23.46.225.31', port=8443): Max retries exceeded with url: /?id=1+UNION+SELECT+NULL (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000002A531DAA350>, 'Connection to 23.46.225.31 timed out. (connect timeout=2.0)'))"
+                    },
+                    {
+                        "path": "/admin",
+                        "error": "Connection_OSError: HTTPSConnectionPool(host='23.46.225.31', port=8443): Max retries exceeded with url: /admin (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000002A531DAB750>, 'Connection to 23.46.225.31 timed out. (connect timeout=2.0)'))"
+                    }
+                ]
+            },
+            "bypass_attempts": {},
+            "stealth_results": {
+                "decoy_scan": {
+                    "status": "http_request_failed",
+                    "details": {},
+                    "error": "HTTPSConnectionPool(host='23.46.225.31', port=8443): Max retries exceeded with url: /%E0%80%AF (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000002A531DAAFD0>, 'Connection to 23.46.225.31 timed out. (connect timeout=2.0)'))"
+                },
+                "fragmented_scan": {
+                    "status": "sent",
+                    "details": "Sent 15 fragments. Target response not directly captured in this simplified model."
+                }
+            },
+            "error": null
+        }
+    ]
+}

@@ -1,0 +1,381 @@
+{
+    "Cloudflare": {
+        "headers": [
+            {"name": "Server", "pattern": "cloudflare", "case_sensitive": false, "score": 7},
+            {"name": "CF-RAY", "pattern": ".+", "case_sensitive": false, "score": 6},
+            {"name": "Set-Cookie", "pattern": "__cfduid|cf_clearance", "case_sensitive": true, "score": 5},
+            {"name": "Set-Cookie", "pattern": "__cf_bm=", "case_sensitive": true, "score": 7},
+            {"name": "Expect-CT", "pattern": "cloudflare", "case_sensitive": false, "score": 4},
+            {"name": "CF-Cache-Status", "pattern": "DYNAMIC|HIT|MISS|EXPIRED|UPDATING|STALE|REVALIDATED", "case_sensitive": false, "score": 3}
+        ],
+        "body": [
+            {"pattern": "Cloudflare Ray ID:|cdnjs.cloudflare.com|Attention Required! \\| Cloudflare|__cf_chl_tk", "score": 7},
+            {"pattern": "ಮಾನವ ಕಿನಾ ಎಂದು ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ", "score": 6},
+            {"pattern": "Vérification que vous n'êtes pas un robot", "score": 6},
+            {"pattern": "id=[\"']cf-challenge-running[\"']", "score": 8},
+            {"pattern": "jschl_vc", "score": 7},
+            {"pattern": "cf_challenge_form", "score": 7},
+            {"pattern": "Checking if the site connection is secure", "score": 6},
+            {"pattern": "cf-turnstile", "score": 7}
+        ],
+        "status_codes": [
+            {"codes": [403], "score": 5},
+            {"codes": [503], "score": 4},
+            {"codes": [200], "score": 2},
+            {"codes": [429], "score": 6},
+            {"codes": [520, 521, 522, 523, 524, 525, 526, 527], "score": 7}
+        ],
+        "final_threshold": 9,
+        "js_challenge_indicators": [
+            "jschl_vc", "cf_challenge_form", "cf-turnstile", "window.turnstile", "window.cfChallenge",
+            "__cf_chl_tk", "cf-challenge-running", "challenge-platform/h/"
+        ]
+    },
+    "Akamai": {
+        "headers": [
+            {"name": "Server", "pattern": "AkamaiGHost|Akamai", "case_sensitive": false, "score": 7},
+            {"name": "X-Akamai-Transformed", "pattern": ".+", "case_sensitive": false, "score": 6},
+            {"name": "X-Cache", "pattern": "AkamaiGHost", "case_sensitive": false, "score": 5},
+            {"name": "X-Akamai-Request-ID", "pattern": ".+", "case_sensitive": false, "score": 4},
+            {"name": "Akamai-Request-BC", "pattern": ".+", "case_sensitive": false, "score": 4}
+        ],
+        "body": [
+            {"pattern": "Reference Error #\\d{2}\\.[\\da-f]{8}\\.[\\da-f]{8}\\.[\\da-f]{8}", "score": 8},
+            {"pattern": "akaUITrickle|akabom_|AKA_PM_|akamai\\.com/challenge", "score": 7},
+            {"pattern": "Accès refusé pour des raisons de sécurité|Access Denied", "score": 7}
+        ],
+        "status_codes": [
+            {"codes": [403, 503], "score": 5},
+            {"codes": [400], "score": 3}
+        ],
+        "final_threshold": 8,
+        "js_challenge_indicators": [
+            "akabom_", "AKA_PM_", "akamai.com/challenge", "sensor_data"
+        ]
+    },
+    "AWS WAF": {
+        "headers": [
+            {"name": "ANY_HEADER", "pattern": "x-amz-waf-", "case_sensitive": false, "type": "prefix_match", "score": 7},
+            {"name": "X-Amz-Waf-Action", "pattern": ".+", "case_sensitive": false, "score": 6},
+            {"name": "Server", "pattern": "awselb|cloudfront", "case_sensitive": false, "score": 2}
+        ],
+        "body": [
+            {"pattern": "AWS WAF|motivi di sicurezza|por motivos de seguridad|raisons de sécurité", "score": 5},
+            {"pattern": "Request blocked by AWS WAF", "score": 8},
+            {"pattern": "Requête bloquée par AWS WAF", "score": 8},
+            {"pattern": "aws-waf-token", "score": 7}
+        ],
+        "status_codes": [
+            {"codes": [403], "score": 5},
+            {"codes": [401], "score": 4}
+        ],
+        "final_threshold": 7
+    },
+    "Sucuri": {
+        "headers": [
+            {"name": "Server", "pattern": "Sucuri/Cloudproxy", "case_sensitive": false, "score": 8},
+            {"name": "X-Sucuri-ID", "pattern": ".+", "case_sensitive": false, "score": 7},
+            {"name": "X-Sucuri-Cache", "pattern": ".+", "case_sensitive": false, "score": 6},
+            {"name": "X-Sucuri-Block", "pattern": ".+", "case_sensitive": false, "score": 5}
+        ],
+        "body": [
+            {"pattern": "Access Denied - Sucuri Website Firewall|sucuri\\.net/blockpage|cloudproxy@sucuri\\.net", "score": 8},
+            {"pattern": "Accès refusé - Pare-feu Sucuri", "score": 8}
+        ],
+        "status_codes": [{"codes": [403], "score": 5}],
+        "final_threshold": 8
+    },
+    "ModSecurity": {
+        "headers": [
+            {"name": "Server", "pattern": "Mod_Security|mod_sec", "case_sensitive": false, "score": 7},
+            {"name": "X-Powered-By", "pattern": "Mod_Security|mod_security", "case_sensitive": false, "score": 6},
+            {"name": "X-Mod-Security-Action", "pattern": ".+", "case_sensitive": false, "score": 5}
+        ],
+        "body": [
+            {"pattern": "Mod_Security|This website is protected by ModSecurity|NOYB|Atomicorp", "score": 7},
+            {"pattern": "Ce site est protégé par ModSecurity|Just a moment...", "score": 7}
+        ],
+        "status_codes": [
+            {"codes": [403, 406, 501], "score": 5},
+            {"codes": [429], "score": 4}
+        ],
+        "final_threshold": 7
+    },
+    "Wordfence": {
+        "headers": [
+            {"name": "Set-Cookie", "pattern": "wf_loginalerted|wordfence_verifiedHuman", "case_sensitive": true, "score": 7}
+        ],
+        "body": [
+            {"pattern": "Generated by Wordfence|wfSCAN", "score": 8},
+            {"pattern": "Your access to this site has been limited by the site owner", "score": 7},
+            {"pattern": "वर्डफ़ेंस द्वारा अवरुद्ध", "score": 7},
+            {"pattern": "Votre accès a été limité par Wordfence", "score": 7}
+        ],
+        "status_codes": [{"codes": [403, 503], "score": 5}],
+        "final_threshold": 8
+    },
+    "Barracuda": {
+        "headers": [
+            {"name": "Server", "pattern": "Barracuda", "case_sensitive": false, "score": 7},
+            {"name": "Set-Cookie", "pattern": "barra_counter_session|BNI__BARRACUDA_", "case_sensitive": true, "score": 6}
+        ],
+        "body": [
+            {"pattern": "Barracuda Web Application Firewall|barracuda\\.com", "score": 8},
+            {"pattern": "Để tiếp tục truy cập", "score": 7},
+            {"pattern": "Accès bloqué par Barracuda", "score": 7}
+        ],
+        "status_codes": [{"codes": [403], "score": 5}],
+        "final_threshold": 8
+    },
+    "F5 BIG-IP": {
+        "headers": [
+            {"name": "Server", "pattern": "BIG-IP|F5", "case_sensitive": false, "score": 6},
+            {"name": "Set-Cookie", "pattern": "BIGipServer|TS[a-zA-Z0-9]{8,}", "case_sensitive": true, "score": 7},
+            {"name": "Connection", "pattern": "close", "case_sensitive": false, "score": 3}
+        ],
+        "body": [
+            {"pattern": "The requested URL was rejected\\. Please consult with your administrator\\.", "score": 7},
+            {"pattern": "비정상적인 요청으로 접근이 거부되었습니다", "score": 7},
+            {"pattern": "L'URL demandée a été rejetée\\.", "score": 7},
+            {"pattern": "ASM:|Your request was blocked by the BIG-IP Application Security Manager", "score": 8}
+        ],
+        "status_codes": [
+            {"codes": [403], "score": 6}
+        ],
+        "final_threshold": 8
+    },
+    "Imperva": {
+        "headers": [
+            {"name": "X-CDN", "pattern": "Incapsula", "case_sensitive": false, "score": 8},
+            {"name": "Set-Cookie", "pattern": "incap_ses_|visid_incap_", "case_sensitive": true, "score": 7},
+            {"name": "X-Iinfo", "pattern": ".+", "case_sensitive": false, "score": 6}
+        ],
+        "body": [
+            {"pattern": "Powered By Incapsula|Incapsula incident ID|rbzns_", "score": 8},
+            {"pattern": "Request unsuccessful\\. Incapsula incident ID", "score": 7},
+            {"pattern": "Requête échouée\\. ID d'incident Incapsula", "score": 7},
+            {"pattern": "subject=WAF Block", "score": 6}
+        ],
+        "status_codes": [
+            {"codes": [403], "score": 5},
+            {"codes": [200], "score": 2}
+        ],
+        "final_threshold": 8,
+        "js_challenge_indicators": [
+            "___utmvc", "_vis_opt_call", "incapsula_support_id", "rbzns_"
+        ]
+    },
+    "Azure WAF": {
+        "headers": [
+            {"name": "Server", "pattern": "Microsoft-Azure-Application-Gateway", "case_sensitive": false, "score": 2},
+            {"name": "Set-Cookie", "pattern": "ApplicationGatewayAffinity", "case_sensitive": true, "score": 1},
+            {"name": "X-MSEdge-Ref", "pattern": ".+", "case_sensitive": false, "score": 7}
+        ],
+        "body": [
+            {"pattern": "Azure Web Application Firewall|The request is blocked by Web Application Firewall", "score": 8},
+            {"pattern": "La requête est bloquée par le pare-feu Azure", "score": 8}
+        ],
+        "status_codes": [{"codes": [403], "score": 5}],
+        "final_threshold": 7
+    },
+    "FortiWeb": {
+        "headers": [
+            {"name": "Set-Cookie", "pattern": "FORTIWAFSID", "case_sensitive": true, "score": 8}
+        ],
+        "body": [
+            {"pattern": "FortiWeb|Web Server's Default Page", "score": 7},
+            {"pattern": "アクセスいただきありがとうございます", "score": 6},
+            {"pattern": "Accès bloqué par FortiWeb", "score": 7}
+        ],
+        "status_codes": [
+            {"codes": [403], "score": 5},
+            {"codes": [200], "score": 2}
+        ],
+        "final_threshold": 8
+    },
+    "Citrix NetScaler": {
+        "headers": [
+            {"name": "Set-Cookie", "pattern": "ns_af=|citrix_ns_id|NSC_", "case_sensitive": true, "score": 7},
+            {"name": "Connection", "pattern": "close", "case_sensitive": false, "score": 3},
+            {"name": "Cneonction", "pattern": "close", "case_sensitive": false, "score": 1},
+            {"name": "X-Powered-By", "pattern": "NetScaler", "case_sensitive": false, "score": 6}
+        ],
+        "body": [
+            {"pattern": "NetScaler|The page cannot be displayed", "score": 7},
+            {"pattern": "요청이 거부되었습니다", "score": 6},
+            {"pattern": "La page ne peut pas être affichée", "score": 6},
+            {"pattern": "Violation ID:|Your request was blocked\\.", "score": 6}
+        ],
+        "status_codes": [
+            {"codes": [403], "score": 6}
+        ],
+        "final_threshold": 8
+    },
+    "Fastly CDN": {
+        "headers": [
+            {"name": "Server", "pattern": "Fastly", "case_sensitive": false, "score": 2},
+            {"name": "X-Cache", "pattern": ".+", "case_sensitive": false, "score": 1},
+            {"name": "Vary", "pattern": "Fastly-SSL", "case_sensitive": false, "score": 1}
+        ],
+        "body": [
+            {"pattern": "Fastly error: unknown domain", "score": 3},
+            {"pattern": "Accès refusé par Fastly", "score": 6}
+        ],
+        "status_codes": [
+            {"codes": [403, 503], "score": 4}
+        ],
+        "final_threshold": 5
+    },
+    "DenyAll": {
+        "headers": [
+            {"name": "Set-Cookie", "pattern": "sessioncookie=", "case_sensitive": true, "score": 7},
+            {"name": "Server", "pattern": "DenyAll", "case_sensitive": false, "score": 8}
+        ],
+        "body": [
+            {"pattern": "Condition Intercepted|DenyAll WAF", "score": 8},
+            {"pattern": "Requête interceptée par DenyAll", "score": 8}
+        ],
+        "status_codes": [{"codes": [403], "score": 5}],
+        "final_threshold": 8
+    },
+    "Wallarm": {
+        "headers": [
+            {"name": "Server", "pattern": "nginx-wallarm", "case_sensitive": false, "score": 8},
+            {"name": "X-Wallarm-Token", "pattern": ".+", "case_sensitive": false, "score": 7}
+        ],
+        "body": [
+            {"pattern": "Blocked by Wallarm|wallarm\\.com", "score": 8},
+            {"pattern": "Bloqué par Wallarm", "score": 8}
+        ],
+        "status_codes": [{"codes": [403], "score": 5}],
+        "final_threshold": 8
+    },
+    "Radware AppWall": {
+        "headers": [
+            {"name": "Server", "pattern": "AppWall", "case_sensitive": false, "score": 7},
+            {"name": "Set-Cookie", "pattern": "TS[a-zA-Z0-9]{8}", "case_sensitive": true, "score": 6}
+        ],
+        "body": [
+            {"pattern": "Radware AppWall|This request has been blocked", "score": 8},
+            {"pattern": "Requête bloquée par Radware", "score": 8}
+        ],
+        "status_codes": [{"codes": [403], "score": 5}],
+        "final_threshold": 8
+    },
+    "Sophos": {
+        "headers": [
+            {"name": "Server", "pattern": "Sophos", "case_sensitive": false, "score": 7}
+        ],
+        "body": [
+            {"pattern": "Sophos Web Appliance|Access Denied", "score": 8},
+            {"pattern": "Accès refusé par Sophos", "score": 8}
+        ],
+        "status_codes": [{"codes": [403], "score": 5}],
+        "final_threshold": 8
+    },
+    "Reblaze": {
+        "headers": [
+            {"name": "Server", "pattern": "Reblaze", "case_sensitive": false, "score": 7},
+            {"name": "Set-Cookie", "pattern": "rbzid=", "case_sensitive": true, "score": 6}
+        ],
+        "body": [
+            {"pattern": "Reblaze Secure Web Gateway|Access Denied", "score": 8},
+            {"pattern": "Accès interdit par Reblaze", "score": 8}
+        ],
+        "status_codes": [{"codes": [403], "score": 5}],
+        "final_threshold": 8
+    },
+    "SiteLock": {
+        "headers": [
+            {"name": "Server", "pattern": "SiteLock", "case_sensitive": false, "score": 7},
+            {"name": "X-Powered-By", "pattern": "SiteLock", "case_sensitive": true, "score": 6}
+        ],
+        "body": [
+            {"pattern": "SiteLock Incident ID|Protected by SiteLock", "score": 8},
+            {"pattern": "Protégé par SiteLock", "score": 8}
+        ],
+        "status_codes": [
+            {"codes": [403], "score": 5},
+            {"codes": [200], "score": 2}
+        ],
+        "final_threshold": 8
+    },
+    "Signal Sciences": {
+        "headers": [
+            {"name": "Server", "pattern": "sigsci-nginx|Fastly", "case_sensitive": false, "score": 7},
+            {"name": "X-SigSci-RequestID", "pattern": ".+", "case_sensitive": false, "score": 8},
+            {"name": "X-SigSci-Tags", "pattern": ".+", "case_sensitive": false, "score": 6}
+        ],
+        "body": [
+            {"pattern": "Signal Sciences|sigsci_waf_block|signalsciences\\.net/block", "score": 8},
+            {"pattern": "This request has been blocked by Signal Sciences", "score": 8},
+            {"pattern": "Access Denied - Signal Sciences", "score": 7}
+        ],
+        "status_codes": [
+            {"codes": [403, 406, 500, 503], "score": 5}
+        ],
+        "final_threshold": 8,
+        "js_challenge_indicators": [
+            "sigsci_js_challenge"
+        ]
+    },
+    "StackPath WAF": {
+        "headers": [
+            {"name": "Server", "pattern": "StackPath", "case_sensitive": false, "score": 7},
+            {"name": "X-SP-WAF-Blocked", "pattern": "true", "case_sensitive": false, "score": 8},
+            {"name": "X-SP-WAF-Action", "pattern": "block|deny", "case_sensitive": false, "score": 7}
+        ],
+        "body": [
+            {"pattern": "StackPath WAF|security policy violation", "score": 8},
+            {"pattern": "Please contact the site owner if you believe this is an error", "score": 6}
+        ],
+        "status_codes": [{"codes": [403, 406], "score": 5}],
+        "final_threshold": 8
+    },
+    "PerimeterX": {
+        "headers": [
+            {"name": "_pxhd", "pattern": ".+", "case_sensitive": false, "score": 7},
+            {"name": "X-PX-AUTHORIZATION", "pattern": ".+", "case_sensitive": false, "score": 6},
+            {"name": "X-PX-BLOCKING-UUID", "pattern": ".+", "case_sensitive": false, "score": 6}
+        ],
+        "body": [
+            {"pattern": "PerimeterX|PXH|human challenge", "score": 8},
+            {"pattern": "window\\._px(?:InitialConfig|Events|Utils)", "score": 7}
+        ],
+        "status_codes": [
+            {"codes": [403], "score": 6},
+            {"codes": [200], "score": 3}
+        ],
+        "cookies": [
+            {"name": "_px", "pattern": ".*", "score": 5},
+            {"name": "pxvid", "pattern": ".*", "score": 4},
+            {"name": "_pxCaptcha", "pattern": ".*", "score": 6}
+        ],
+        "final_threshold": 9,
+        "js_challenge_indicators": [
+            "window\\._px", "_pxOnCaptchaSuccess", "captcha.px-cdn.net", "client.perimeterx.net"
+        ]
+    },
+    "Kasada": {
+        "headers": [
+            {"name": "X-Kasada-Action", "pattern": ".+", "case_sensitive": false, "score": 8},
+            {"name": "X-Kasada-Status", "pattern": ".+", "case_sensitive": false, "score": 7}
+        ],
+        "body": [
+            {"pattern": "Kasada|__kasada_js_token__|kpsdk", "score": 8},
+            {"pattern": "kasada-static\\.com|gateway\\.kasada\\.io", "score": 7}
+        ],
+        "status_codes": [
+            {"codes": [403, 429], "score": 6},
+            {"codes": [200], "score": 3}
+        ],
+        "cookies": [
+            {"name": "kps", "pattern": ".*", "score": 6},
+            {"name": "kasada_id", "pattern": ".*", "score": 5}
+        ],
+        "final_threshold": 9,
+        "js_challenge_indicators": [
+            "__kasada_js_token__", "kasada\\.js", "kpsdk", "x-kpsdk-ct"
+        ]
+    }
+}

@@ -1,0 +1,5 @@
+scapy==2.5.0
+aiohttp==3.8.5
+pyppeteer>=1.0.2
+requests
+h2
